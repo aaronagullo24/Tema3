@@ -13,30 +13,30 @@ if (isset($_GET['nombre'])) {
     $correcto = false;
 
 
-        /* foreach($usuario as $user => $pass){
+    /* foreach($usuario as $user => $pass){
         
             if($nombre==$user && $contraseña==$pass)$correcto=true;
 
         }*/
-        $fichero = fopen("usuarios.txt", "r");
-        while (($linea = fgets($fichero)) && !$encontrado) {
-            $linea = trim($linea);
-            $posicion_espacio = strpos($linea," ");
-            $usu = substrt($linea, 0,$posicion_espacio);
+    $fichero = fopen("usuarios.txt", "r");
+    while (($linea = fgets($fichero)) && !$encontrado) {
+        $linea = trim($linea);
+        $posicion_espacio = strpos($linea, " ");
+        $usu = substrt($linea, 0, $posicion_espacio);
 
-            $longitud_pass = strlen($linea) - ($posicion_espacio + 1);
+        $longitud_pass = strlen($linea) - ($posicion_espacio + 1);
 
-            $pass = trim($pass);
-            $pass = substr($linea, $posicion_espacio + 1, $longitud_pass);
+        $pass = trim($pass);
+        $pass = substr($linea, $posicion_espacio + 1, $longitud_pass);
 
-            if ($usu == $nombre && $pass == $contraseña) $encontrado = true;
-        }
-        fclose($fichero);
-
-        if ($encontrado && !$error) echo "Entra";
-        //header('location:inicio_aplicacion.php?nombre=' . $nombre);
-        else echo "USUARIO NO VALIDO";
+        if ($usu == $nombre && $pass == $contraseña) $encontrado = true;
     }
+    fclose($fichero);
+
+    if ($encontrado && !$error) echo "Entra";
+    //header('location:inicio_aplicacion.php?nombre=' . $nombre);
+    else echo "USUARIO NO VALIDO";
+}
 
 
 ?>
