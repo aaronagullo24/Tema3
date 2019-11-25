@@ -23,6 +23,7 @@ $arrayd = [
 ];
 
 $cadena_datos = array_a_cadena($arrayd);
+
 if (isset($_POST['ver'])) {
     $suma = 0;
     $cadena_datos = $_POST['cadena'];
